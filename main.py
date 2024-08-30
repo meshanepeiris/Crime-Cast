@@ -2,8 +2,28 @@ import pandas as pd
 
 table = pd.read_csv('./csv/crime.csv')
 
-columns = table[['Year', 'Month', 'Incident']]
+table['Month'] = table['Month'].replace({
+    'January': 1,
+    'February': 2,
+    'March': 3,
+    'April': 4,
+    'May': 5,
+    'June': 6,
+    'July': 7,
+    'August': 8,
+    'September': 9,
+    'October': 10,
+    'November': 11,
+    'December': 12
+    
+})
+table_grouped = table.groupby(['Year', 'Month'])['Incident'].sum()
 
-columns.to_csv('crime.csv', index=False)
 
-print(table)
+
+
+table_grouped.to_csv('crime.csv')
+
+
+
+
