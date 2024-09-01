@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}Latest News{% endblock %}
+
+{% block content %}
+
+    <!-- TRENDING SECTION-->
+    <h2 class="text-center mt-3 mb-3">Trending</h2>
+    <div class="container my-4">
+        <div class="row">
+            {% for i in range(4) %}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Trending card {{ i + 1 }}</h5>
+                        <p class="card-text">This is a description for trending card {{ i + 1 }}.</p>
+                        <p>Financial Rating score: (These should be the news articles that are highly positive or highly negative)</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- ALL NEWS SECTION -->
+    <h2 class="text-center mt-3 mb-3">All news</h2>
+    <div class="container my-4">
+        {% for i in range(numArticles) %}
+            <div class="card mb-3" href="www.google.com">
+                <div class="card-body">
+                    <h5 class="card-title">{{ titles[i] }}</h5>
+                    <p class="card-text">{{descriptions[i]}}</p>
+                    <p>Financal Rating score: </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
